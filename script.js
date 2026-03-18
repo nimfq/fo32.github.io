@@ -1,7 +1,6 @@
 const cards = document.querySelectorAll('.interactive-card');
 const inviteCode = 'TZqFmdJtBF';
 const guildWidgetUrl = 'https://discord.com/api/guilds/1438452459818451028/widget.json';
-const customStatusEndpoint = document.body?.dataset.statusEndpoint?.trim();
 const membersNode = document.querySelector('[data-stat="members"]');
 const onlineNode = document.querySelector('[data-stat="online"]');
 const playingNode = document.querySelector('[data-stat="playing"]');
@@ -52,47 +51,6 @@ const renderGames = (games) => {
     .join('');
 };
 
-const normalizeGames = (games) => {
-  if (!Array.isArray(games)) {
-    return [];
-  }
-
-  return games
-    .map((entry) => {
-      if (Array.isArray(entry) && entry.length >= 2) {
-        return [String(entry[0]), Number(entry[1]) || 0];
-      }
-
-      if (entry && typeof entry === 'object') {
-        return [String(entry.name ?? ''), Number(entry.count) || 0];
-      }
-
-      return ['', 0];
-    })
-    .filter(([name, count]) => name && count > 0);
-};
-
-const fetchCustomStatus = async () => {
-  if (!customStatusEndpoint) {
-    return null;
-  }
-
-  const response = await fetch(customStatusEndpoint, { headers: { Accept: 'application/json' } });
-
-  if (!response.ok) {
-    throw new Error('Не удалось получить данные из внешнего webhook-bridge endpoint.');
-  }
-
-  const data = await response.json();
-
-  return {
-    members: Number(data.members),
-    online: Number(data.online),
-    playing: Number(data.playing),
-    games: normalizeGames(data.games),
-  };
-};
-
 const fetchDiscordStatus = async () => {
   const [inviteResponse, widgetResponse] = await Promise.all([
     fetch(`https://discord.com/api/v10/invites/${inviteCode}?with_counts=true&with_expiration=true`),
@@ -128,7 +86,7 @@ const fetchDiscordStatus = async () => {
 
 const fetchServerStatus = async () => {
   try {
-    const status = (await fetchCustomStatus()) ?? (await fetchDiscordStatus());
+    const status = await fetchDiscordStatus();
 
     renderValue(membersNode, status.members);
     renderValue(onlineNode, status.online);
@@ -141,4 +99,4 @@ const fetchServerStatus = async () => {
 };
 
 fetchServerStatus();
-window.setInterval(fetchServerStatus, 60000);
+window.setInterval(fetchServerStatus, 15000);

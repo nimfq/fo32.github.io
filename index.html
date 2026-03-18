@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body data-status-endpoint="">
+  <body>
     <div class="page-shell">
       <header class="hero">
         <nav class="topbar">
@@ -84,7 +84,7 @@
             <article class="status-card interactive-card" data-accent="violet" tabindex="0">
               <span class="status-card__label">Играют прямо сейчас</span>
               <strong class="status-card__value" data-stat="playing">—</strong>
-              <p class="status-card__meta">Счётчик собирается по игровым активностям сервера.</p>
+              <p class="status-card__meta">Счётчик собирается по игровым активностям виджета сервера.</p>
             </article>
           </div>
 
@@ -97,6 +97,7 @@
               </p>
             </div>
             <div class="status-games" data-active-games>Загрузка данных…</div>
+            <p class="status-footnote">Автообновление: каждые 15 секунд.</p>
           </div>
         </section>
 
@@ -145,6 +146,12 @@
               <h3>GTA 5</h3>
               <p>Свободные покатушки, миссии, ограбления и просто весёлое время в онлайне.</p>
             </article>
+
+            <article class="game-card interactive-card" data-accent="orange" tabindex="0">
+              <span class="game-card__glow"></span>
+              <h3>Rust</h3>
+              <p>Выживание, рейды, строительство базы и напряжённые вылазки за ресурсами.</p>
+            </article>
           </div>
         </section>
 
@@ -164,8 +171,8 @@
               <p>На одном сервере собраны игроки из нескольких популярных вселенных и режимов.</p>
             </article>
             <article class="feature-card interactive-card" data-accent="violet" tabindex="0">
-              <h3>Разнообразие</h3>
-              <p>На сервере, помимо игровых чатов, можно пообшаться или заработать свою валюту сервера</p>
+              <h3>Интерактивность</h3>
+              <p>Карточки реагируют на наведение и фокус, делая сайт современнее и живее.</p>
             </article>
           </div>
         </section>

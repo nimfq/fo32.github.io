@@ -16,7 +16,7 @@
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body data-status-endpoint="">
     <div class="page-shell">
       <header class="hero">
         <nav class="topbar">
@@ -58,6 +58,53 @@
       </header>
 
       <main>
+        <section class="section status-section" id="status">
+          <div class="section-heading">
+            <p class="eyebrow">Статус Discord-сервера</p>
+            <h2>Кто сейчас на сервере</h2>
+            <p>
+              Блок автоматически подтягивает количество участников и онлайн из Discord, а также показывает,
+              сколько людей сейчас запустили игры.
+            </p>
+          </div>
+
+          <div class="status-grid">
+            <article class="status-card interactive-card" data-accent="cyan" tabindex="0">
+              <span class="status-card__label">Участников на сервере</span>
+              <strong class="status-card__value" data-stat="members">—</strong>
+              <p class="status-card__meta">Общее количество участников сообщества.</p>
+            </article>
+
+            <article class="status-card interactive-card" data-accent="green" tabindex="0">
+              <span class="status-card__label">Сейчас в сети</span>
+              <strong class="status-card__value" data-stat="online">—</strong>
+              <p class="status-card__meta">Активные пользователи Discord в данный момент.</p>
+            </article>
+
+            <article class="status-card interactive-card" data-accent="violet" tabindex="0">
+              <span class="status-card__label">Играют прямо сейчас</span>
+              <strong class="status-card__value" data-stat="playing">—</strong>
+              <p class="status-card__meta">Счётчик собирается по игровым активностям виджета сервера.</p>
+            </article>
+          </div>
+
+          <div class="status-panel interactive-card" data-accent="blue">
+            <div>
+              <span class="panel-tag">Живая активность</span>
+              <h3>Во что играют прямо сейчас</h3>
+              <p class="status-panel__text">
+                Список обновляется автоматически. Если никто не играет, блок честно это покажет.
+              </p>
+            </div>
+            <div class="status-games" data-active-games>Загрузка данных…</div>
+            <p class="status-footnote">
+              Автообновление: каждые 60 секунд. При желании можно указать свой webhook-bridge endpoint в
+              атрибуте <code>data-status-endpoint</code> у тега <code>body</code> и подменить источник данных
+              без переделки интерфейса.
+            </p>
+          </div>
+        </section>
+
         <section class="section" id="games">
           <div class="section-heading">
             <p class="eyebrow">Во что играют на сервере</p>

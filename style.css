@@ -248,6 +248,84 @@ body::before {
   margin-top: 72px;
 }
 
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.status-card {
+  min-height: 180px;
+  padding: 22px;
+  border-radius: 24px;
+}
+
+.status-card__label {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 18px;
+}
+
+.status-card__value {
+  display: block;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.status-card__meta,
+.status-panel__text,
+.status-footnote {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.status-panel {
+  display: grid;
+  gap: 18px;
+  padding: 26px;
+  border-radius: 28px;
+}
+
+.status-panel h3 {
+  margin: 0 0 10px;
+  font-size: 1.65rem;
+}
+
+.status-games {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.status-chip__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent, var(--blue)) 35%, rgba(255, 255, 255, 0.15));
+  color: var(--text);
+  font-size: 0.86rem;
+}
+
 .section-heading {
   margin-bottom: 28px;
 }
@@ -319,6 +397,7 @@ body::before {
 
 @media (max-width: 960px) {
   .hero__content,
+  .status-grid,
   .games-grid,
   .features-grid {
     grid-template-columns: 1fr;

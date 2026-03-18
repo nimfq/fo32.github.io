@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FO/32 Hub Games — Discord сервер для геймеров</title>
+    <meta
+      name="description"
+      content="FO/32 Hub Games — Discord-сервер для совместной игры в No Man's Sky, World of Tanks, Fallout, Stalcraft, Battlefront 2 и GTA 5."
+    />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar">
+          <div class="brand">FO/32 Hub Games</div>
+          <a class="discord-link" href="https://discord.gg/TZqFmdJtBF" target="_blank" rel="noreferrer">
+            Войти в Discord
+          </a>
+        </nav>
+
+        <div class="hero__content">
+          <div class="hero__text">
+            <p class="eyebrow">Игровой Discord-сервер</p>
+            <h1>Одна площадка для совместной игры, общения и поиска команды.</h1>
+            <p class="hero__description">
+              Здесь собираются игроки разных жанров: космос, танки, постапокалипсис и экшен.
+              Заходи на сервер, находи компанию и играй в любимые игры без долгих поисков.
+            </p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="https://discord.gg/TZqFmdJtBF" target="_blank" rel="noreferrer">
+                Присоединиться к серверу
+              </a>
+              <a class="button button--secondary" href="#games">Посмотреть игры</a>
+            </div>
+          </div>
+
+          <div class="hero__panel interactive-card" data-accent="blue">
+            <span class="panel-tag">Онлайн-комьюнити</span>
+            <h2>FO/32 Hub Games</h2>
+            <p>
+              Сервер для разных игр: заходи, зови друзей, собирай пати и проводи время в хорошей компании.
+            </p>
+            <ul class="hero__stats">
+              <li><strong>6</strong><span>игровых направлений</span></li>
+              <li><strong>1</strong><span>активное Discord-пространство</span></li>
+              <li><strong>∞</strong><span>возможностей для коопа</span></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section status-section" id="status">
+          <div class="section-heading">
+            <p class="eyebrow">Статус Discord-сервера</p>
+            <h2>Кто сейчас на сервере</h2>
+            <p>
+              Блок автоматически подтягивает количество участников и онлайн из Discord, а также показывает,
+              сколько людей сейчас запустили игры.
+            </p>
+          </div>
+
+          <div class="status-grid">
+            <article class="status-card interactive-card" data-accent="cyan" tabindex="0">
+              <span class="status-card__label">Участников на сервере</span>
+              <strong class="status-card__value" data-stat="members">—</strong>
+              <p class="status-card__meta">Общее количество участников сообщества.</p>
+            </article>
+
+            <article class="status-card interactive-card" data-accent="green" tabindex="0">
+              <span class="status-card__label">Сейчас в сети</span>
+              <strong class="status-card__value" data-stat="online">—</strong>
+              <p class="status-card__meta">Активные пользователи Discord в данный момент.</p>
+            </article>
+
+            <article class="status-card interactive-card" data-accent="violet" tabindex="0">
+              <span class="status-card__label">Играют прямо сейчас</span>
+              <strong class="status-card__value" data-stat="playing">—</strong>
+              <p class="status-card__meta">Счётчик собирается по игровым активностям виджета сервера.</p>
+            </article>
+          </div>
+
+          <div class="status-panel interactive-card" data-accent="blue">
+            <div>
+              <span class="panel-tag">Живая активность</span>
+              <h3>Во что играют прямо сейчас</h3>
+              <p class="status-panel__text">
+                Список обновляется автоматически. Если никто не играет, блок честно это покажет.
+              </p>
+            </div>
+            <div class="status-games" data-active-games>Загрузка данных…</div>
+            <p class="status-footnote">Автообновление: каждые 15 секунд.</p>
+          </div>
+        </section>
+
+        <section class="section" id="games">
+          <div class="section-heading">
+            <p class="eyebrow">Во что играют на сервере</p>
+            <h2>Интерактивные игровые блоки</h2>
+            <p>
+              Наведи курсор на карточку — она подсветится и покажет настроение каждого направления.
+            </p>
+          </div>
+
+          <div class="games-grid">
+            <article class="game-card interactive-card" data-accent="cyan" tabindex="0">
+              <span class="game-card__glow"></span>
+              <h3>No Man’s Sky</h3>
+              <p>Исследование галактик, строительство баз, экспедиции и кооперативные вылазки.</p>
+            </article>
+
+            <article class="game-card interactive-card" data-accent="gold" tabindex="0">
+              <span class="game-card__glow"></span>
+              <h3>World of Tanks</h3>
+              <p>Сбор взвода, тактика, голосовая координация и совместные катки.</p>
+            </article>
+
+            <article class="game-card interactive-card" data-accent="orange" tabindex="0">
+              <span class="game-card__glow"></span>
+              <h3>Fallout</h3>
+              <p>Постапокалиптическая атмосфера, обсуждение билдов и совместное прохождение.</p>
+            </article>
+
+            <article class="game-card interactive-card" data-accent="green" tabindex="0">
+              <span class="game-card__glow"></span>
+              <h3>Stalcraft</h3>
+              <p>Рейды, вылазки в опасные зоны, фарм и общение с теми, кто в теме.</p>
+            </article>
+
+            <article class="game-card interactive-card" data-accent="violet" tabindex="0">
+              <span class="game-card__glow"></span>
+              <h3>Battlefront 2</h3>
+              <p>Командные матчи, фан по Star Wars и кооператив с голосовой связью.</p>
+            </article>
+
+            <article class="game-card interactive-card" data-accent="pink" tabindex="0">
+              <span class="game-card__glow"></span>
+              <h3>GTA 5</h3>
+              <p>Свободные покатушки, миссии, ограбления и просто весёлое время в онлайне.</p>
+            </article>
+
+            <article class="game-card interactive-card" data-accent="orange" tabindex="0">
+              <span class="game-card__glow"></span>
+              <h3>Rust</h3>
+              <p>Выживание, рейды, строительство базы и напряжённые вылазки за ресурсами.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section about">
+          <div class="section-heading">
+            <p class="eyebrow">Почему стоит зайти</p>
+            <h2>Сервер-визитка с живым акцентом</h2>
+          </div>
+
+          <div class="features-grid">
+            <article class="feature-card interactive-card" data-accent="blue" tabindex="0">
+              <h3>Быстрый старт</h3>
+              <p>Один клик по кнопке — и ты уже на сервере, где можно сразу найти игроков.</p>
+            </article>
+            <article class="feature-card interactive-card" data-accent="green" tabindex="0">
+              <h3>Разные жанры</h3>
+              <p>На одном сервере собраны игроки из нескольких популярных вселенных и режимов.</p>
+            </article>
+            <article class="feature-card interactive-card" data-accent="violet" tabindex="0">
+              <h3>Интерактивность</h3>
+              <p>Карточки реагируют на наведение и фокус, делая сайт современнее и живее.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

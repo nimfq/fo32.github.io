@@ -1,0 +1,434 @@
+:root {
+  color-scheme: dark;
+  --bg: #07111f;
+  --bg-soft: rgba(11, 21, 37, 0.78);
+  --card: rgba(14, 24, 42, 0.82);
+  --line: rgba(151, 164, 197, 0.18);
+  --text: #f5f7ff;
+  --muted: #aab7d5;
+  --blue: #5aa8ff;
+  --cyan: #36e3ff;
+  --gold: #ffcd57;
+  --orange: #ff9a5f;
+  --green: #67f0a6;
+  --violet: #9a7cff;
+  --pink: #ff6fbe;
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(90, 168, 255, 0.22), transparent 32%),
+    radial-gradient(circle at 85% 15%, rgba(154, 124, 255, 0.18), transparent 22%),
+    linear-gradient(180deg, #07111f 0%, #02060d 100%);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.55), transparent 90%);
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 56px;
+}
+
+.topbar,
+.hero__content,
+.games-grid,
+.features-grid {
+  display: grid;
+}
+
+.topbar {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.brand {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.discord-link,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.discord-link {
+  justify-self: end;
+  padding: 12px 18px;
+  color: var(--text);
+  background: rgba(88, 101, 242, 0.18);
+  border: 1px solid rgba(88, 101, 242, 0.35);
+  border-radius: 999px;
+}
+
+.hero {
+  padding: 16px 0 24px;
+}
+
+.hero__content {
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.hero h1,
+.section-heading h2 {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5.2rem);
+  max-width: 12ch;
+}
+
+.hero__description,
+.section-heading p,
+.game-card p,
+.feature-card p,
+.hero__panel p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero__description {
+  max-width: 62ch;
+  margin: 22px 0 0;
+  font-size: 1.08rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.button {
+  min-height: 52px;
+  padding: 14px 22px;
+  border-radius: 16px;
+  font-weight: 700;
+}
+
+.button--primary {
+  color: #04111f;
+  background: linear-gradient(135deg, var(--cyan), #9fe7ff);
+  box-shadow: 0 20px 45px rgba(54, 227, 255, 0.22);
+}
+
+.button--secondary {
+  color: var(--text);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.interactive-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(17, 29, 51, 0.92), rgba(10, 18, 32, 0.82));
+  box-shadow: var(--shadow);
+}
+
+.interactive-card::before {
+  content: '';
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent, var(--blue)) 48%, transparent) 0%, transparent 58%);
+  opacity: 0;
+  transform: translate(var(--pointer-x, 0), var(--pointer-y, 0));
+  transition: opacity 180ms ease;
+  pointer-events: none;
+}
+
+.interactive-card:hover::before,
+.interactive-card:focus-visible::before,
+.interactive-card.is-active::before {
+  opacity: 0.85;
+}
+
+.interactive-card:hover,
+.interactive-card:focus-visible,
+.discord-link:hover,
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.interactive-card:hover,
+.interactive-card:focus-visible,
+.interactive-card.is-active,
+.discord-link:hover,
+.button:hover {
+  border-color: color-mix(in srgb, var(--accent, var(--blue)) 45%, white 8%);
+  box-shadow: 0 28px 80px color-mix(in srgb, var(--accent, var(--blue)) 18%, rgba(0, 0, 0, 0.45));
+}
+
+.hero__panel {
+  padding: 28px;
+  border-radius: 28px;
+}
+
+.panel-tag {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #d7e4ff;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+
+.hero__panel h2 {
+  margin: 0 0 10px;
+  font-size: 1.8rem;
+}
+
+.hero__stats {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+  display: grid;
+  gap: 14px;
+}
+
+.hero__stats li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.hero__stats strong {
+  min-width: 40px;
+  font-size: 1.5rem;
+  color: var(--cyan);
+}
+
+.section {
+  margin-top: 72px;
+}
+
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.status-card {
+  min-height: 180px;
+  padding: 22px;
+  border-radius: 24px;
+}
+
+.status-card__label {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 18px;
+}
+
+.status-card__value {
+  display: block;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.status-card__meta,
+.status-panel__text,
+.status-footnote {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.status-panel {
+  display: grid;
+  gap: 18px;
+  padding: 26px;
+  border-radius: 28px;
+}
+
+.status-panel h3 {
+  margin: 0 0 10px;
+  font-size: 1.65rem;
+}
+
+.status-games {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.status-chip__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent, var(--blue)) 35%, rgba(255, 255, 255, 0.15));
+  color: var(--text);
+  font-size: 0.86rem;
+}
+
+.section-heading {
+  margin-bottom: 28px;
+}
+
+.games-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.game-card,
+.feature-card {
+  min-height: 215px;
+  padding: 22px;
+  border-radius: 24px;
+}
+
+.game-card {
+  isolation: isolate;
+}
+
+.game-card__glow {
+  position: absolute;
+  inset: auto -15% -25% auto;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent, var(--blue)) 42%, transparent), transparent 70%);
+  z-index: -1;
+  transition: transform 220ms ease;
+}
+
+.game-card:hover .game-card__glow,
+.game-card:focus-visible .game-card__glow,
+.game-card.is-active .game-card__glow {
+  transform: scale(1.15);
+}
+
+.game-card h3,
+.feature-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.4rem;
+}
+
+.features-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+[data-accent='blue'] {
+  --accent: var(--blue);
+}
+[data-accent='cyan'] {
+  --accent: var(--cyan);
+}
+[data-accent='gold'] {
+  --accent: var(--gold);
+}
+[data-accent='orange'] {
+  --accent: var(--orange);
+}
+[data-accent='green'] {
+  --accent: var(--green);
+}
+[data-accent='violet'] {
+  --accent: var(--violet);
+}
+[data-accent='pink'] {
+  --accent: var(--pink);
+}
+
+@media (max-width: 960px) {
+  .hero__content,
+  .status-grid,
+  .games-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(100% - 20px, 1180px);
+    padding-top: 18px;
+  }
+
+  .topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .discord-link {
+    justify-self: start;
+  }
+
+  .hero__panel,
+  .game-card,
+  .feature-card {
+    border-radius: 22px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 13vw, 4rem);
+  }
+}

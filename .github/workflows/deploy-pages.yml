@@ -30,7 +30,7 @@ jobs:
       - name: Prepare static files
         run: |
           mkdir dist
-          cp index.html style.css script.js dist/
+          cp index.html style.css script.js favicon.svg dist/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
